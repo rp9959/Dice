@@ -1,8 +1,7 @@
 			
 _INSTRUCTION BEFORE RUNNING THE PROJECT_:
 Please configure the database as per your requirement in "application.properties" file.
-Please refer readMe PDF to look at the sample output as it appears. (Here it appears in a cntinuous way without spacing).
-
+Please refer readMe PDF to look at the sample output as it appears. 
 **Contents:**
 A)	About REST endpoints
 B)	About Data base Design
