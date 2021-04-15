@@ -1,9 +1,9 @@
-package com.synpulse;
+package com.dice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
+//All the files under this package "com.dice" shall be included for execution.
 @SpringBootApplication
 public class DiceApplication {
 
