@@ -3,12 +3,12 @@ _INSTRUCTION BEFORE RUNNING THE PROJECT_:
 Please configure the database as per your requirement in "application.properties" file.
 Please refer readMe PDF to look at the sample output as it appears. (Here it appears in a cntinuous way without spacing).
 
-**Contents:**__
+**Contents:**
 A)	About REST endpoints
 B)	About Data base Design
 C)	About SimulationService.java
 
-**A) ABOUT REST ENDPOINTS:**__
+**A) ABOUT REST ENDPOINTS:**
 
 For the given Java assignment, making sensible assumptions, total 3 REST end points are created.
 
@@ -122,24 +122,24 @@ Sum-on-Dice    Count-of-Sum    Relative-Distribution
 
 
 
-**B) About Database Design:**__
+**B) About Database Design:**
 
 Based on the requirement for the assignment, I have created 2 tables. Hence there are 2 Models and 2 repositories in the Project.
 First table is SIMULATION and the other is DISTRIBUTION and these two tables are linked by a "SimulationId".
 
-**Simulation table:**__ This table is to store the total number of simulations and total number of rolls for a specific diceNumber-diceSide combination. This table has the following columns
+**Simulation table:** This table is to store the total number of simulations and total number of rolls for a specific diceNumber-diceSide combination. This table has the following columns
 
-1. _simulation_id_ (Id given for a specific DiceNumber- diceSide combination).
-2. _dice_side_ (This is a string which is specific DiceNumber- diceSide combination).
-3. _simulation_count_ (This is total number of simulations for the specific dice_side combination)
-4._total_rolls_ (Total number of rolls for the specific dice_side combination).
+1. simulation_id (Id given for a specific DiceNumber- diceSide combination).
+2. dice_side (This is a string which is specific DiceNumber- diceSide combination).
+3. simulation_count (This is total number of simulations for the specific dice_side combination)
+4.  total_rolls (Total number of rolls for the specific dice_side combination).
 
-**Distribution table:**__ This table is to store the Sum on dice and the number of times it occurs for a specific diceNumber-diceSide combination. This table has following columns:
+**Distribution table:** This table is to store the Sum on dice and the number of times it occurs for a specific diceNumber-diceSide combination. This table has following columns:
 
-1.	_Id_ ( It’s just a generated id)
-2.	_count_ ( gives he count of a a specific Sum on the dice for a specific diceNumber-diceSide combination)
-3.	_sum_on_dice_ ( represents Sum on the dice for a specific diceNumber-diceSide combination)
-4.	_simulation_id_ ( Id that connects with Simulation table. Basically each diceNumber-diceSide combination will have a simulationId).
+1.	Id ( It’s just a generated id)
+2.	count ( gives he count of a a specific Sum on the dice for a specific diceNumber-diceSide combination)
+3.	sum_on_dice ( represents Sum on the dice for a specific diceNumber-diceSide combination)
+4.	simulation_id ( Id that connects with Simulation table. Basically each diceNumber-diceSide combination will have a simulationId).
 
-**C)SimulationService.java:**__ It is the important class where entire functionalities are written. 
+**C)SimulationService.java:** It is the important class where entire functionalities are written. 
 Three different functions are written here, each corresponding to a REST endpoint.
