@@ -5,7 +5,7 @@
 *INSTRUCTION BEFORE RUNNING THE PROJECT:*
 
 Please configure the database as per your requirement in "*application.properties*" file.
-Plesae refer to readMe.pdf in the github repository for better formatted view.
+Please refer to readMe.pdf in the github repository for better formatted view of Sample Outputs.
 
 Contents:
 
