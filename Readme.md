@@ -41,7 +41,7 @@ Here we can configure noOfDice, noOfSides and noOfRolls and Validations has been
 
 required.
 
-A sample call from Postman**:**
+A sample call from Postman:
 
 [**http://localhost:8080/simulate?dice=9&sides=12&rolls=100**](http://localhost:8080/simulate?dice=9&sides=12&rolls=100)
 
@@ -383,21 +383,18 @@ given diceNumber–diceSide combination as a JSON.
 
 **B) About Database Design:**
 
-Based on the requirement for the assignment, I have created 2 tables. Hence there are 2 Models and
-
-2 repositories in the Project.
-
+Based on the requirement for the assignment, I have created 2 tables. Hence there are 2 Models and 2 repositories in the Project. 
 First table is SIMULATION and the other is DISTRIBUTION.
 
 ***Simulation table***: This table is to store the total number of simulations and total number of rolls for
 
 a specific diceNumber-diceSides combination. This table has the following columns
 
-\1. *simulation\_id* (Id given for a specific DiceNumber- diceSide combination).
+1. *simulation\_id* (Id given for a specific DiceNumber- diceSide combination).
 
-\2. diceNumberDiceSides (This is a string which is specific DiceNumber- diceSides combination).
+2. diceNumberDiceSides (This is a string which is specific DiceNumber- diceSides combination).
 
-\3. s*imulation\_count* (Total number of simulations for a specific DiceNumber- diceSides combination)
+3. s*imulation\_count* (Total number of simulations for a specific DiceNumber- diceSides combination)
 
 4.*total\_rolls* (Total number of rolls for the specific DiceNumber- diceSides combination).
 
@@ -405,21 +402,22 @@ a specific diceNumber-diceSides combination. This table has the following column
 
 specific diceNumber-diceSide combination. This table has following columns:
 
-\1. *Id* ( It’s just a generated id)
+1. *Id* ( It’s just a generated id)
 
-\2. *count* (Stores the count of a a specific Sum on the dice for a specific diceNumber-diceSide
+2. *count* (Stores the count of a a specific Sum on the dice for a specific diceNumber-diceSide
 
 combination)
 
-\3. *sum\_on\_dice* ( Represents Sum on the dice for a specific diceNumber-diceSide combination)
+3. *sum\_on\_dice* ( Represents Sum on the dice for a specific diceNumber-diceSide combination)
 
-\4. *simulation\_id* ( Id that is taken from simulation table. Basically each diceNumber-diceSide
+4. *simulation\_id* ( Id that is taken from simulation table. Basically each diceNumber-diceSide
 
 combination will have a simulationId).
 
-5.*relativeDistribution* (Stores the relativeDistribution compared to totalRolls
+5. *relativeDistribution* (Stores the relativeDistribution compared to totalRolls
 
 for the specific diceNumber-diceSides combination)
+
 
 C)**SimulationService.java**: It is the important class where entire functionalities are written.
 
@@ -429,15 +427,11 @@ C)**SimulationService.java**: It is the important class where entire functionali
 
 and Store all the related information in 2 Tables.
 
-➢
-
-➢
-
-*getAllSimulationDetails* Function Returns Total Simulations and Total number of rolls for all
+➢ *getAllSimulationDetails* Function Returns Total Simulations and Total number of rolls for all
 
 the existing diceNumber-diceSides combinations.
 
-*getRelativeDistribution* Function returns the Relative Distribution compared
+➢ *getRelativeDistribution* Function returns the Relative Distribution compared
 
 to Total number of rolls for a given diceNumber-diceSides combination.
 
