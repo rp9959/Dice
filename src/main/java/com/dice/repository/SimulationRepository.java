@@ -9,6 +9,6 @@ import com.dice.model.Simulation;
 //Repository that assists in storing Simulation Table.
 public interface SimulationRepository extends JpaRepository<Simulation, Long> {
 
-	Optional<Simulation> findByDiceSide(String diceSide);
+	Optional<Simulation> findByDiceNumberDiceSides(String diceSide);
 
 }

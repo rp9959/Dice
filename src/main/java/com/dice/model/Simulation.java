@@ -18,24 +18,25 @@ public class Simulation {
 	@Id
 	@Column(name = "SimulationId")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long simulationId; // (Id given for a specific DiceNumber- diceSide combination
+	private Long simulationId; 			// (Id given for a specific DiceNumber- diceSide combination
 
-	String diceSide; // (This is a string which is specific DiceNumber- diceSide combination).
+	String diceNumberDiceSides; 		// (This is a string which is specific DiceNumber- diceSide combination).
 
-	int simulationCount; // (This is total number of simulations for the specific dice_side combination)
+	int simulationCount; 				// (This is total number of simulations for the specific dice_side combination)
 
-	int totalRolls; // (Total number of rolls for the specific dice_side combination).
+	int totalRolls; 					// (Total number of rolls for the specific dice_side combination).
 
 	public Long getSimulationId() {
 		return simulationId;
 	}
 
-	public String getDiceSide() {
-		return diceSide;
+
+	public String getDiceNumber_diceSides() {
+		return diceNumberDiceSides;
 	}
 
-	public void setDiceSide(String diceSide) {
-		this.diceSide = diceSide;
+	public void setDiceNumber_diceSides(String diceNumber_diceSides) {
+		this.diceNumberDiceSides = diceNumber_diceSides;
 	}
 
 	public int getSimulationCount() {

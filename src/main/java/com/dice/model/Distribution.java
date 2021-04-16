@@ -2,13 +2,10 @@ package com.dice.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
+
 
 import org.springframework.stereotype.Component;
 
@@ -24,18 +21,23 @@ public class Distribution {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
-	private Long simulationId; /*( Id that connects with Simulation table. Basically each diceNumber-diceSide 
-										combination will have a simulationId).*/
+	private Long simulationId; 				/*( Id that is taken from Simulation table. Basically each diceNumber-diceSide 
+												//		combination will have a simulationId).*/
 	
-	private int sumOnDice; //( Represents Sum on the dice for a specific diceNumber-diceSide combination)
+	private int sumOnDice; 					//( Represents Sum on the dice for a specific diceNumber-diceSide combination)
 
-	private int count; //(Stores the count of a a specific Sum on the dice for a specific diceNumber-diceSide combination)
+	private int count; 						//(Stores the count of a a specific Sum on the dice for a 
+												//specific diceNumber-diceSide combination)
+
+	private float relativeDistribution;		 //(stores the relativeDistribution compared to totalRolls 
+												//for the specific diceNumber-diceSides combination)
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinTable(name = "simulation_distribution", 
-    joinColumns =  @JoinColumn(name = "simulationId")) 
-    private Simulation simulation;  //Here we are trying to create a relation between two tables.
-
+	public float getRelativeDistribution() {
+		return relativeDistribution;
+	}
+	public void setRelativeDistribution(float relativeDistribution) {
+		this.relativeDistribution = relativeDistribution;
+	}
 	public Long getSimulationId() {
 		return simulationId;
 	}
