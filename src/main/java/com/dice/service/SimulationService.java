@@ -32,7 +32,7 @@ public class SimulationService {
 	  return the SUM-COUNT pairs as JSON and Store all the related information in 2 Tables */
 	
 	@Transactional
-	public ResponseEntity<Map<Integer, Integer>> createSimulation(int noOfDice, int noOfSides, int noOfRolls) {
+	public ResponseEntity<?> createSimulation(int noOfDice, int noOfSides, int noOfRolls) {
 		
 		//Here diceNumber-diceSides combination is created as a string
 		String dice_side = String.valueOf(noOfDice).concat("-").concat(String.valueOf(noOfSides));
@@ -80,9 +80,6 @@ public class SimulationService {
 				
 				int newCount = distributionList.get(0).getCount();
 				distributionList.get(0).setCount(newCount + 1);
-				int totalRolls=simulationRepo.findByDiceNumberDiceSides(dice_side).get().getTotalRolls();
-				float relativeDistribution = (float) ((float) newCount / (float) totalRolls) * 100;
-				distributionList.get(0).setRelativeDistribution(relativeDistribution);
 				distributionRepo.save(distributionList.get(0));
 			}
 
@@ -93,20 +90,27 @@ public class SimulationService {
 				
 				try {
 					long simId=simulationRepo.findByDiceNumberDiceSides(dice_side).get().getSimulationId();
-					int totalRolls=simulationRepo.findByDiceNumberDiceSides(dice_side).get().getTotalRolls();
-					float relativeDistribution = (float) ((float) 1 / (float) totalRolls) * 100;
 					distribution.setSimulationId(simId);
-					distribution.setRelativeDistribution(relativeDistribution);
+					distribution.setRelativeDistribution(0);
 					distributionRepo.save(distribution);
 					}
 				
 				catch (Exception e)
 				{
-					System.out.println(e);
+					return ResponseEntity.ok().body(e.toString());
 				}
 
 			}
 		}
+		
+		//Here relative Distribution shall be updated based on the total rolls made
+		distributionRepo.findAll().stream().forEach(i->
+		{
+			int count=i.getCount();
+			int totalRolls=simulationRepo.findByDiceNumberDiceSides(dice_side).get().getTotalRolls();
+			float relativeDistribution = (float) ((float) count / (float) totalRolls) * 100;
+			i.setRelativeDistribution(relativeDistribution);
+		});
 
 		return  ResponseEntity.ok().body(sum_map); // returns JSON with SUM-Count pairs
 	}
@@ -126,7 +130,7 @@ public class SimulationService {
 			list.add(i);
 		});
 			
-			return ResponseEntity.ok().body(list);
+			return ResponseEntity.ok().body(list); 
 		
 	}
 

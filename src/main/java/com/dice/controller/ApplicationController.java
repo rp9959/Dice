@@ -37,7 +37,8 @@ public class ApplicationController {
 			@RequestParam(value="rolls", required=true) int noOfRolls)  {
 		
 		//Validation for number of dice, sides and number of rolls
-		diceException.validateSimulation(noOfDice, noOfSides, noOfRolls);
+		if (noOfDice < 1 || noOfRolls < 1 || noOfSides < 4 )		
+		return diceException.validateSimulation(noOfDice, noOfSides, noOfRolls);
 		
 		return simulationService.createSimulation(noOfDice, noOfSides, noOfRolls);
 		

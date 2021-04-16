@@ -11,12 +11,8 @@ public class DiceException {
 	
 	public ResponseEntity<String> validateSimulation(int noOfDice, int noOfSides, int noOfRolls){
 	
-	if (noOfDice < 1 || noOfRolls < 1 || noOfSides < 4)		
-		return new ResponseEntity<String>("Enter minimum dice, sides, rolls!", HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<String>("Minimum number of dice must be 1, minimum number of sides must be 4, minimum number of rolls msut be 1!", HttpStatus.BAD_REQUEST);
 		
-	else
-		return null;
-
 }
 	
 }
