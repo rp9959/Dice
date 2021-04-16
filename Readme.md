@@ -195,9 +195,9 @@ relative distribution, compared to the total rolls, for all the simulations.
 
 A sample call from Postman:
 
-[**http://localhost:8080/relativedistribution?dice=5&sides=8**](http://localhost:8080/relativedistribution?dice=5&sides=8) This returns the required details for the
+[**http://localhost:8080/relativedistribution?dice=5&sides=8**](http://localhost:8080/relativedistribution?dice=5&sides=8) 
 
-given diceNumber–diceSide combination as a JSON.
+This returns the required details for the given diceNumber–diceSide combination as a JSON.
 
 **Sample Output:**
 
